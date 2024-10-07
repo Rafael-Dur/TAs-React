@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import Card from './Card';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <h1>Mis Tarjetas</h1>
+      <div className="card-container">
+        <Card>
+          <h2 className="card-title">Primer Proyecto</h2>
+          <p className="card-description">Descripción del Proyecto 1</p>
+          <p className="card-assigned">Asignado a: Ramón Gómez</p>
+          <p className="card-dates">Inicio: 2024-09-01 - Fin: 2024-09-15</p>
+        </Card>
 
-export default App
+        <Card>
+          <h2 className="card-title">Segundo Proyecto</h2>
+          <p className="card-description">Descripción del Proyecto 2</p>
+          <p className="card-assigned">Asignado a: Carla Ortega</p>
+          <p className="card-dates">Inicio: 2024-09-05 - Fin: 2024-09-20</p>
+        </Card>
+
+        <Card>
+          <h2 className="card-title">Tercer Proyecto</h2>
+          <p className="card-description">Descripción del Proyecto 3</p>
+          <p className="card-assigned">Asignado a: Jorge Sánchez</p>
+          <p className="card-dates">Inicio: 2024-09-10 - Fin: 2024-09-25</p>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default App;

@@ -1,0 +1,42 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    margin-left: 20px;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    width: 100%;
+    margin-left: 20px;
+  }
+  
+  .input-field {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-left: 20px;
+  }
+  
+  .input-text {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 80%;
+    margin-left: 20px;
+    max-width: 500px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
