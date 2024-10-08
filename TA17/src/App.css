@@ -1,0 +1,48 @@
+#root {
+  max-width: 1280px;
+  margin:  auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100vh; /* Altura completa de la ventana */
+  background-color: #f0f0f0; /* Color de fondo opcional */
+}
+
+.container {
+  text-align: center; /* Centra el texto dentro del contenedor */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 8px; /* Esquinas redondeadas */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+  background-color: #fff; /* Color de fondo del contenedor */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: blue;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+div {
+  text-align: center;
+  margin-top: 50px;
+}
