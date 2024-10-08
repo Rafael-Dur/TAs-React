@@ -1,72 +1,52 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
-import Contact from './Contact';
-import Product from './Product'; 
-import ProtectedRoute from './ProtectedRoute'; // Importar la ruta protegida
-import { AuthProvider, useAuth } from './AuthContext'; // Importar el contexto de autenticación
+// App.jsx
+import React, { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom'; 
 import './App.css';
 
+import About from './About';
+import Contact from './Contact';
+import Home from './Home';
+import Product from './Product';
+import Login from './Login';
+import PrivateRoute from './PrivateRoute';
+
 const App = () => {
-    return (
-        <AuthProvider>
-            <Router>
-                <div className="container">
-                    <nav>
-                        <ul>
-                            <li>
-                                <Link to="/">Home</Link>
-                            </li>
-                            <li>
-                                <Link to="/about">About</Link>
-                            </li>
-                            <li>
-                                <Link to="/contact">Contact</Link>
-                            </li>
-                            <li>
-                                <Link to="/product/1">Producto 1</Link>
-                            </li>
-                            <li>
-                                <Link to="/product/2">Producto 2</Link>
-                            </li>
-                            <li>
-                                <Link to="/product/3">Producto 3</Link>
-                            </li>
-                            <li>
-                                <AuthButton /> {/* Botón de autenticación */}
-                            </li>
-                        </ul>
-                    </nav>
+  const [user, setUser] = useState(null); // Estado para almacenar la información del usuario
 
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="/product/:id" element={<Product />} />
-                        {/* Rutas protegidas */}
-                        <ProtectedRoute path="/protected" element={<ProtectedPage />} />
-                    </Routes>
-                </div>
-            </Router>
-        </AuthProvider>
-    );
-};
+  return (
+    <Routes>
+      {/* Rutas públicas */}
+      <Route path="/login" element={<Login setUser={setUser} />} />
 
-// Componente para manejar el inicio y cierre de sesión
-const AuthButton = () => {
-    const { isAuthenticated, login, logout } = useAuth();
+      <Route
+        path="/home"
+        element={user ? <Home /> : <Navigate to="/home" />}
+      />
+      <Route path="/about" element={user ? <About /> : <Navigate to="/login" />} />
+      <Route path="/contact" element={user ? <Contact /> : <Navigate to="/login" />} />
+      <Route path="/product/:id" element={user ? <Product /> : <Navigate to="/login" />} />
 
-    return isAuthenticated ? (
-        <button onClick={logout}>Logout</button>
-    ) : (
-        <button onClick={login}>Login</button>
-    );
-};
-
-// Componente de página protegida
-const ProtectedPage = () => {
-    return <h2>Esta es una página protegida</h2>;
+      {/* Rutas protegidas */}
+      <Route
+        path="/about-protected"
+        element={
+          <PrivateRoute user={user}>
+            <About />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/contact-protected"
+        element={
+          <PrivateRoute user={user}>
+            <Contact />
+          </PrivateRoute>
+        }
+      />
+      {/* Redirigir a la página de login si la ruta no existe */}
+      <Route path="*" element={<Navigate to="/login" />} />
+    </Routes>
+  );
 };
 
 export default App;

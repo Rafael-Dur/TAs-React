@@ -1,0 +1,26 @@
+#root {
+    max-width: 1280px;
+    margin:  auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+/* Product.css */
+.product-container {
+    padding: 20px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-container h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .product-container p {
+    font-size: 1rem;
+  }
+  

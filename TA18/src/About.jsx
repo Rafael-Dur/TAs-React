@@ -1,10 +1,16 @@
+// About.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
     <div>
       <h1>About Page</h1>
-      <p>This is the About page, where we talk about our application.</p>
+      {/* Otros contenidos de About */}
+      <p>Estas en la página de información de la empresa</p>
+      <Link to="/home">
+        <button>Back to Home</button>
+      </Link>
     </div>
   );
 };

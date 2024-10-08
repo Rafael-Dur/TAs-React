@@ -1,8 +1,10 @@
 #root {
-  max-width: 1280px;
+  max-width: max-content;
   margin:  auto;
+  max-height: max-content;
   padding: 2rem;
   text-align: center;
+  background-color: aquamarine;
 }
 
 body {
@@ -12,7 +14,7 @@ body {
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente */
   height: 100vh; /* Altura completa de la ventana */
-  background-color: #f0f0f0; /* Color de fondo opcional */
+  background-color: #6b9f92; /* Color de fondo opcional */
 }
 
 .container {

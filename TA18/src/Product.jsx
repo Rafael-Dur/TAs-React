@@ -1,8 +1,9 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Product = () => {
   const { id } = useParams(); // Obtiene el ID del parámetro de la URL
+  const navigate = useNavigate(); // Hook para navegar a otras rutas
 
   // Simulación de datos de productos
   const products = [
@@ -20,6 +21,7 @@ const Product = () => {
         <>
           <h1>{product.name}</h1>
           <p>{product.description}</p>
+          <button onClick={() => navigate('/home')}>Volver a Home</button>
         </>
       ) : (
         <h2>Producto no encontrado</h2>
